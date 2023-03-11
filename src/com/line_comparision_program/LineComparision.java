@@ -1,39 +1,37 @@
 package com.line_comparision_program;
 
-import java.util.Scanner;
-
 public class LineComparision {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter first co-ordinates vale x1 and y1 is ");
-        int x1 = sc.nextInt();
-        int y1 = sc.nextInt();
-        System.out.println("enter first co-ordinates vale x2 and y2 is");
-        int x2 = sc.nextInt();
-        int y2 = sc.nextInt();
-        double length1 = Math.sqrt((Math.pow((x2-x1),2)) +(Math.pow((y2-y1),2)));
-        String len1=Double.toString(length1);
-        System.out.println("enter first co-ordinates vale x3 and y3 is");
-        int x3 = sc.nextInt();
-        int y3 = sc.nextInt();
-        System.out.println("enter first co-ordinates vale x4 and y4 is");
-        int x4 = sc.nextInt();
-        int y4 = sc.nextInt();
-        double length2 = Math.sqrt((Math.pow((x4-x3),2)) + (Math.pow((y4-y3),2)));
-        String len2=Double.toString(length2);
-        System.out.println("length of the first line 1 " +len1);
-        System.out.println("length of the first line 2 " +len2);
-        System.out.println();
+    public  double calculatingLengthOfLine(int x1, int x2, int y1, int y2) {
+        double length = Math.sqrt(Math.pow((x2 - x1), 2) + (Math.pow((y2 - y1), 2)));
+        return length;
+    }
+    public void checkEqual(String len1,String len2){
+        if(len1.equals(len2))
+            System.out.println("Both Lines are EQUAL ");
+        else
+            System.out.println("Both Lines are not EQUAL");
+    }
+    public void compareTo(String len1,String len2) {
         int length=len1.compareTo(len2);
-
+        //result of the comparision
         if(length<0) {
-            System.out.println(len1 +" is lexicographically higher than "+len2);
+            System.out.println("len1 is lexicographically higher than len2");
         }else if(length==0) {
-            System.out.println(len1 +" is lexicographically  equal to "+len2);
+            System.out.println("len1 is lexicographically  equal to len2");
         }else if(length>0){
-            System.out.println(len1 +" is lexicographically less than "+len2);
+            System.out.println(" len1 is lexicographically less than len2");
         }
-
+    }
+    public static void main(String[] args) {
+        LineComparision lineComparision = new LineComparision();
+        double lineLength1 =lineComparision. calculatingLengthOfLine(3, 2, 6, 8);
+        System.out.println("length of first line is :"+lineLength1);
+        double lineLength2=lineComparision.calculatingLengthOfLine(5,5,5,5);
+        System.out.println("length of second line is :"+lineLength2);
+        String len1=Double.toString(lineLength1);
+        String len2=Double.toString(lineLength2);
+        lineComparision.checkEqual(len1,len2);
+        lineComparision.compareTo(len1,len2);
     }
 
 }
