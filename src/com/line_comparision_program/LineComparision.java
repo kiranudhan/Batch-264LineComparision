@@ -21,14 +21,18 @@ public class LineComparision {
         int y4 = sc.nextInt();
         double length2 = Math.sqrt((Math.pow((x4-x3),2)) + (Math.pow((y4-y3),2)));
         String len2=Double.toString(length2);
-        System.out.println("length of the first line " +len1);
-        System.out.println("length of the first line " +len2);
+        System.out.println("length of the first line 1 " +len1);
+        System.out.println("length of the first line 2 " +len2);
         System.out.println();
+        int length=len1.compareTo(len2);
 
-        if(len1.equals(len2))
-            System.out.println("Both Lines are EQUAL ");
-        else
-            System.out.println("Both Lines are not EQUAL");
+        if(length<0) {
+            System.out.println(len1 +" is lexicographically higher than "+len2);
+        }else if(length==0) {
+            System.out.println(len1 +" is lexicographically  equal to "+len2);
+        }else if(length>0){
+            System.out.println(len1 +" is lexicographically less than "+len2);
+        }
 
     }
 
